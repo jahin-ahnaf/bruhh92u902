@@ -70,14 +70,17 @@
 
   // Event listener for the custom login button
   document.getElementById('custom-login-button').addEventListener('click', function() {
-    // Trigger the Facebook login process
-    FB.login(function(response) {
-      if (response.authResponse) {
-        // User is logged in, handle the response as needed
-        checkLoginState();
-      }
-    }, { scope: 'public_profile,email' });
-  });
+  // Trigger the Facebook login process
+  FB.login(function(response) {
+    if (response.authResponse) {
+      // User is logged in, handle the response as needed
+      checkLoginState();
+    } else {
+      // Handle login error or cancellation here
+    }
+  }, { scope: 'public_profile,email' });
+});
+
 
 </script>
 
