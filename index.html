@@ -3,6 +3,7 @@
 <head>
   <title>Facebook Login JavaScript Example</title>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <script>
@@ -70,7 +71,7 @@
 
 </script>
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button class="logInButton" scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
 <button onclick="logout()">Log Out</button>
