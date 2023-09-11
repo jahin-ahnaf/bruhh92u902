@@ -63,6 +63,8 @@
     FB.logout(function(response) {
       console.log('Logged out');
       document.getElementById('status').innerHTML = 'Logged out';
+      var profilePictureElement = document.getElementById('profile-picture');
+      profilePictureElement.style.display = 'none';
     });
   }
 
