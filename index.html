@@ -48,15 +48,16 @@
   }
 
   function displayProfilePicture() {
-    FB.api('/me/picture?type=large', function(response) {
-      if (response && !response.error) {
-        var profilePictureURL = response.data.url;
-        var profilePictureElement = document.getElementById('profile-picture');
-        profilePictureElement.src = profilePictureURL;
-        profilePictureElement.style.display = 'block';
-      }
-    });
-  }
+  FB.api('/me?fields=picture.type(large)', function(response) {
+    if (response && !response.error) {
+      var profilePictureURL = response.picture.data.url;
+      var profilePictureElement = document.getElementById('profile-picture');
+      profilePictureElement.src = profilePictureURL;
+      profilePictureElement.style.display = 'block';
+    }
+  });
+}
+
 
   function logout() {
     FB.logout(function(response) {
