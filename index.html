@@ -69,10 +69,23 @@
     });
   }
 
+  function login(){
+  FB.login(function(response) {
+  if (response.status === 'connected') {
+    // Logged into your webpage and Facebook.
+    testAPI();
+    displayProfilePicture();
+  } else {
+    // The person is not logged into your webpage or we are unable to tell.
+    document.getElementById('status').innerHTML = 'Please log ' +
+    'into this webpage.';
+  }
+});
+  }
+
 </script>
 
-<div class="fb-login-button " data-width="500" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div>
-
+<button onclick="login()">Log In</button>
 
 <button onclick="logout()">Log Out</button>
 
