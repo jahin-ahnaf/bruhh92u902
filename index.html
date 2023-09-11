@@ -71,7 +71,8 @@
 
 </script>
 
-<button class="login-button" onclick="checkLoginState()" data-width="400" data-size="" data-button-type="" data-layout="" data-auto-logout-link="true" data-use-continue-as="true">Log In</button>
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
 
 <button onclick="logout()">Log Out</button>
 
