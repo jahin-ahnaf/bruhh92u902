@@ -49,26 +49,15 @@
   }
 
   function displayProfilePicture() {
-  FB.api('/me?fields=picture.type(large)', function(response) {
-    if (response && !response.error) {
-      var profilePictureURL = response.picture.data.url;
-      var profilePictureElement = document.getElementById('profile-picture');
-      profilePictureElement.src = profilePictureURL;
-      profilePictureElement.style.display = 'block';
-    }
-  });
-}
-
-document.getElementById('custom-login-button').addEventListener('click', function() {
-  // Trigger the Facebook login process
-  FB.login(function(response) {
-    if (response.authResponse) {
-      // User is logged in, handle the response as needed
-      checkLoginState();
-    }
-  }, { scope: 'public_profile,email' });
-});
-
+    FB.api('/me?fields=picture.type(large)', function(response) {
+      if (response && !response.error) {
+        var profilePictureURL = response.picture.data.url;
+        var profilePictureElement = document.getElementById('profile-picture');
+        profilePictureElement.src = profilePictureURL;
+        profilePictureElement.style.display = 'block';
+      }
+    });
+  }
 
   function logout() {
     FB.logout(function(response) {
@@ -79,8 +68,20 @@ document.getElementById('custom-login-button').addEventListener('click', functio
     });
   }
 
+  // Event listener for the custom login button
+  document.getElementById('custom-login-button').addEventListener('click', function() {
+    // Trigger the Facebook login process
+    FB.login(function(response) {
+      if (response.authResponse) {
+        // User is logged in, handle the response as needed
+        checkLoginState();
+      }
+    }, { scope: 'public_profile,email' });
+  });
+
 </script>
 
+<!-- Custom login button with black background -->
 <button id="custom-login-button" style="background-color: black; color: white;">Login with Facebook</button>
 
 <button onclick="logout()">Log Out</button>
