@@ -59,6 +59,16 @@
   });
 }
 
+document.getElementById('custom-login-button').addEventListener('click', function() {
+  // Trigger the Facebook login process
+  FB.login(function(response) {
+    if (response.authResponse) {
+      // User is logged in, handle the response as needed
+      checkLoginState();
+    }
+  }, { scope: 'public_profile,email' });
+});
+
 
   function logout() {
     FB.logout(function(response) {
